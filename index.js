@@ -3,6 +3,7 @@ const express = require('express')
 const { engine } = require('express-handlebars')
 const { getAllPaises } = require('./src/models/paises')
 const { getAllMusicos, getMusicoById } = require('./src/models/musicos')
+const makeFullName = require('./src/utils/makeFullName')
 const app = express()
 
 // config
@@ -34,6 +35,7 @@ app.get('/', async (req, res) => {
 
 app.get('/musico/:id', async (req, res) => {
     const musico = await getMusicoById(req.params.id)
+    musico.fullName = makeFullName(musico.first_name, musico.last_name)
     res.render('musico', {
         layout: 'musico',
         musico
