@@ -1,0 +1,33 @@
+{{> Header }}
+<div class="mb-4">
+  {{> Carousel }}
+</div>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Home</div>
+          </div>
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolores fugiat earum molestias voluptatem
+              soluta non aperiam officia! Modi tempore ipsum nesciunt porro architecto aperiam nemo reiciendis, vel
+              quidem blanditiis.</p>
+          </div>
+        </div>
+      </div>
+      {{#each musicos}}
+      <div class="col-md-4">
+        {{> Musico
+        musico=this
+        }}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{> Footer }}
+</body>
+
+</html>
